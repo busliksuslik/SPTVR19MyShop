@@ -20,7 +20,7 @@ class App {
     public void run(){
         boolean exit = true;
         do{
-            System.out.printf("Exit - 0%nAdd product - 1%nSell product - 2%nShow All products - 3%nIncert: ");
+            System.out.printf("Exit - 0%nAdd product - 1(administrator)%nBuy product - 2%nShow All products - 3%nShow cart - 4%nIncert: ");
             int ch = scan.nextInt();
             switch(ch){
                 case 0:{
@@ -33,7 +33,7 @@ class App {
                     break;
                 }
                 case 2:{
-                    
+                    cart.append(store.sell());
                     break;
                 }
                 case 3:{
@@ -41,6 +41,7 @@ class App {
                     break;
                 }
                 case 4:{
+                    cart.printAll();
                     break;
                 }
 

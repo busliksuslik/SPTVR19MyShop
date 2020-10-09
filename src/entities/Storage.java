@@ -22,15 +22,19 @@ public class Storage implements Serializable{
     }
     
     public void append(){
+        System.out.printf("Input password: ");
+        if (!(scan.nextLine().equals("314159265358979"))){
+            return;
+        }
         boolean isSimmilar = false;
         System.out.printf("Product name: ");
         String name;
         do{
         name = scan.nextLine();
         }while("".equals(name) || "\n".equals(name) || name == null);
-        System.out.printf("%nProduct price: ");
+        System.out.printf("Product price: ");
         int price = scan.nextInt();
-        System.out.printf("%nProduct amount: ");
+        System.out.printf("Product amount: ");
         int amount = scan.nextInt();
         Product product = new Product(name,price,amount);
         for (int i = 0 ; i < products.length ; i++){
@@ -50,7 +54,7 @@ public class Storage implements Serializable{
         }
     }
     public void printAll(){
-        System.out.printf("----------");
+        System.out.printf("---SHOP---");
         for (int i = 0 ; i < products.length ; i++){
             if (products[i] != null){
                 System.out.printf(products[i].print());
@@ -60,5 +64,30 @@ public class Storage implements Serializable{
     }
     public void save(){
         saver.saveStorage(products);
+    }
+    public Product sell(){
+        printAll();
+        System.out.printf("Product ID: ");
+        int id = scan.nextInt();
+        System.out.printf("Product amount: ");
+        int amount = scan.nextInt();
+        Product output = new Product(products[id]);
+        int res = products[id].subAmount(amount);
+        output.setAmount(amount);
+        switch (res) {
+            case 0:
+                System.out.println("Success");
+                return output;
+            case 1:
+                System.out.println("Success");
+                products[id] = null;
+                return output;
+            default:
+                System.out.println("Нет столько товара на складе");
+                return null;
+        }
+            
+        
+        
     }
 }

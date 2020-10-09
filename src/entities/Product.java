@@ -27,6 +27,11 @@ public class Product implements Serializable{
         this.price = price;
         this.amount = amount;
     }
+    Product (Product a){
+        this.name = a.getName();
+        this.price = a.getPrice();
+        this.amount = a.subAmount(id);
+    }
     String print() {
         return "---\n" +name+ "\nCost: " + price + " \nAmount: "+amount+" \nID: : "+id+"\n---";
         
@@ -34,6 +39,19 @@ public class Product implements Serializable{
     public void addAmount(int a){
         this.amount+=a;
     } 
+    public int subAmount(int a){
+        if (a < this.amount){
+            this.amount = this.amount - a;
+            return 0;
+        } else if (a == this.amount){
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+    Product product(Product in){
+        return in;
+    }
 
     
     
