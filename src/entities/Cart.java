@@ -11,6 +11,7 @@ package entities;
  */
 public class Cart {
     private Product[] products = new Product[100];
+    
     public void append(Product product){
         boolean isSimmilar = false;
         for (int i = 0 ; i < products.length ; i++){

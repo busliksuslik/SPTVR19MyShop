@@ -44,7 +44,6 @@ class App {
                     cart.printAll();
                     break;
                 }
-
             }
         }while(exit);
     }

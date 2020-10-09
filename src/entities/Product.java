@@ -16,6 +16,7 @@ public class Product implements Serializable{
     private int price;
     private int amount;
     private int id = 0;
+    
     Product(String name,int price,int amount, int id){
         this.name = name;
         this.price = price;
@@ -87,7 +88,5 @@ public class Product implements Serializable{
         this.amount = id;
     }
 
-    
-    
     
 }
